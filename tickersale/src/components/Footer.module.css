@@ -1,0 +1,292 @@
+/* Footer Component Styles */
+.footer {
+  background-color: #1a1a1a;
+  color: #e2e8f0;
+  width: 100%;
+  margin-top: auto;
+}
+
+/* Línea superior */
+.topBorder {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #4a5568, transparent);
+  margin-bottom: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1rem 1rem;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.columnTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.linkList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.link {
+  color: #a0aec0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  padding: 0.25rem 0;
+}
+
+.link:hover {
+  color: #646cff;
+  transform: translateX(5px);
+}
+
+.link::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #646cff;
+  transition: width 0.3s ease;
+}
+
+.link:hover::before {
+  width: 6px;
+}
+
+/* Columna de redes sociales */
+.socialColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background-color: #2d3748;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.socialLink:hover {
+  background-color: #646cff;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(100, 108, 255, 0.3);
+}
+
+.socialIcon {
+  width: 20px;
+  height: 20px;
+  fill: #e2e8f0;
+  transition: fill 0.3s ease;
+}
+
+.socialLink:hover .socialIcon {
+  fill: #ffffff;
+}
+
+/* Línea separadora */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #4a5568, transparent);
+  margin: 2rem 0 1.5rem;
+}
+
+/* Copyright */
+.copyright {
+  text-align: center;
+  color: #718096;
+  font-size: 0.9rem;
+  padding: 1rem 0 2rem;
+  border-top: 1px solid #2d3748;
+  margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem 1rem 1rem;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .column {
+    align-items: center;
+  }
+
+  .socialColumn {
+    align-items: center;
+  }
+
+  .socialLinks {
+    justify-content: center;
+  }
+
+  .link {
+    padding: 0.5rem 0;
+  }
+
+  .columnTitle {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem 0.75rem 1rem;
+  }
+
+  .content {
+    gap: 2rem;
+  }
+
+  .socialLinks {
+    gap: 0.75rem;
+  }
+
+  .socialLink {
+    width: 40px;
+    height: 40px;
+  }
+
+  .socialIcon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .footer {
+    background-color: #0d1117;
+  }
+
+  .columnTitle {
+    color: #f0f6fc;
+  }
+
+  .link {
+    color: #8b949e;
+  }
+
+  .link:hover {
+    color: #646cff;
+  }
+
+  .copyright {
+    color: #6e7681;
+  }
+
+  .socialLink {
+    background-color: #21262d;
+  }
+
+  .socialLink:hover {
+    background-color: #646cff;
+  }
+
+  .topBorder,
+  .divider {
+    background: linear-gradient(90deg, transparent, #30363d, transparent);
+  }
+
+  .copyright {
+    border-top: 1px solid #21262d;
+  }
+}
+
+/* High contrast support */
+@media (prefers-contrast: high) {
+  .footer {
+    background-color: #000000;
+  }
+
+  .columnTitle {
+    color: #ffffff;
+  }
+
+  .link {
+    color: #cccccc;
+  }
+
+  .link:hover {
+    color: #ffffff;
+    background-color: #646cff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  .socialLink {
+    background-color: #333333;
+    border: 1px solid #666666;
+  }
+
+  .socialLink:hover {
+    background-color: #646cff;
+    border-color: #646cff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .link,
+  .socialLink,
+  .socialIcon {
+    transition: none;
+  }
+
+  .link:hover {
+    transform: none;
+  }
+
+  .socialLink:hover {
+    transform: none;
+  }
+}
