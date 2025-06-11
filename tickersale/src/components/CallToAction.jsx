@@ -1,6 +1,6 @@
 import styles from "./CallToAction.module.css";
 
-const CallToAction = () => {
+const CallToAction = ({ onNavigateToRegister }) => {
   // Iconos SVG
   const RocketIcon = () => (
     <svg className={styles.icon} viewBox="0 0 24 24">
@@ -35,7 +35,11 @@ const CallToAction = () => {
   // Manejadores de eventos
   const handlePrimaryClick = () => {
     console.log("Primary CTA clicked - redirecting to registration");
-    // Aquí puedes agregar lógica de navegación o registro
+    if (onNavigateToRegister) {
+      onNavigateToRegister();
+    } else {
+      console.log("Navigation to register not provided");
+    }
   };
 
   const handleSecondaryClick = () => {

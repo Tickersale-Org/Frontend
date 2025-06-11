@@ -7,7 +7,7 @@ import Testimonials from "../components/Testimonials";
 import CallToAction from "../components/CallToAction";
 import Footer from "../components/Footer";
 
-const Landing = ({ onNavigateToLogin }) => {
+const Landing = ({ onNavigateToLogin, onNavigateToRegister }) => {
   return (
     <div className={styles.landing}>
       {/* Navigation Bar */}
@@ -16,7 +16,7 @@ const Landing = ({ onNavigateToLogin }) => {
       {/* Main content sections */}
       <main className={styles.main}>
         {/* Hero Section - Main banner with CTA */}
-        <Hero />
+        <Hero onNavigateToRegister={onNavigateToRegister} />
 
         {/* Features Section - Key benefits */}
         <Features />
@@ -25,7 +25,7 @@ const Landing = ({ onNavigateToLogin }) => {
         <Testimonials />
 
         {/* Call to Action Section - Final conversion */}
-        <CallToAction />
+        <CallToAction onNavigateToRegister={onNavigateToRegister} />
       </main>
 
       {/* Footer */}

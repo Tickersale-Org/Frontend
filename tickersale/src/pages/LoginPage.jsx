@@ -4,7 +4,7 @@ import LoginForm from "../components/LoginForm";
 import ForgotPasswordLink from "../components/ForgotPasswordLink";
 import styles from "./LoginPage.module.css";
 
-const LoginPage = ({ onNavigateToLanding }) => {
+const LoginPage = ({ onNavigateToLanding, onNavigateToRegister }) => {
   return (
     <div className={styles.loginPageContainer}>
       {/* Navbar at the top */}
@@ -59,8 +59,11 @@ const LoginPage = ({ onNavigateToLanding }) => {
                 className={styles.signupLink}
                 onClick={(e) => {
                   e.preventDefault();
-                  console.log("Redirect to signup page");
-                  // Here you would typically navigate to signup page
+                  if (onNavigateToRegister) {
+                    onNavigateToRegister();
+                  } else {
+                    console.log("Navigation to register page not provided");
+                  }
                 }}
               >
                 Regístrate aquí

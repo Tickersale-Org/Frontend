@@ -1,9 +1,13 @@
 import styles from "./Hero.module.css";
 
-const Hero = () => {
+const Hero = ({ onNavigateToRegister }) => {
   const handleCTAClick = () => {
     console.log("CTA clicked - redirecting to registration");
-    // Aquí puedes agregar la lógica de navegación real
+    if (onNavigateToRegister) {
+      onNavigateToRegister();
+    } else {
+      console.log("Navigation to register not provided");
+    }
   };
 
   // Iconos SVG para elementos decorativos
