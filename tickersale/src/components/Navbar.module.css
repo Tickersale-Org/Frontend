@@ -464,3 +464,123 @@
     display: none !important;
   }
 }
+
+/* Authentication Section */
+.authSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.authLoading {
+  width: 100px;
+  height: 36px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 18px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.navbar.scrolled .authLoading {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.05) 25%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.05) 75%
+  );
+  background-size: 200% 100%;
+}
+
+/* Mobile Authentication Section */
+.mobileAuthSection {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mobileUserSection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Ensure proper spacing for authenticated state */
+.authSection .userMenuContainer {
+  margin: 0;
+}
+
+/* Media Queries for Authentication Section */
+
+/* Large screens (1400px and up) */
+@media (min-width: 1400px) {
+  .authLoading {
+    width: 120px;
+    height: 40px;
+  }
+}
+
+/* Medium screens (1024px and down) */
+@media (max-width: 1024px) {
+  .authLoading {
+    width: 90px;
+    height: 34px;
+  }
+}
+
+/* Tablets (768px and down) */
+@media (max-width: 768px) {
+  .authSection {
+    display: none; /* Hidden on mobile, shown in mobile menu */
+  }
+
+  .mobileAuthSection {
+    display: block;
+  }
+}
+
+/* Mobile devices (480px and down) */
+@media (max-width: 480px) {
+  .mobileAuthSection {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+  }
+
+  .authLoading {
+    width: 80px;
+    height: 32px;
+    border-radius: 16px;
+  }
+}
+
+/* Dark mode support for authentication section */
+@media (prefers-color-scheme: dark) {
+  .mobileAuthSection {
+    border-top-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .authLoading {
+    animation: none;
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .navbar.scrolled .authLoading {
+    background: rgba(0, 0, 0, 0.08);
+  }
+}

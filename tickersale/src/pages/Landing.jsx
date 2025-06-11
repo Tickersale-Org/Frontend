@@ -7,11 +7,11 @@ import Testimonials from "../components/Testimonials";
 import CallToAction from "../components/CallToAction";
 import Footer from "../components/Footer";
 
-const Landing = () => {
+const Landing = ({ onNavigateToLogin }) => {
   return (
     <div className={styles.landing}>
       {/* Navigation Bar */}
-      <Navbar />
+      <Navbar onNavigateToLogin={onNavigateToLogin} />
 
       {/* Main content sections */}
       <main className={styles.main}>
