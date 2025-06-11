@@ -1,4 +1,4 @@
-/* Navbar Component Styles */
+/* Navbar Component Styles - Completamente Responsivo */
 .navbar {
   position: fixed;
   top: 0;
@@ -7,6 +7,8 @@
   z-index: 1000;
   transition: all 0.3s ease;
   background-color: transparent;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .navbar.scrolled {
@@ -24,12 +26,14 @@
   align-items: center;
   justify-content: space-between;
   height: 70px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
   font-weight: bold;
   color: #ffffff;
   text-decoration: none;
@@ -37,6 +41,9 @@
   cursor: pointer;
   user-select: none;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+  min-width: 0;
+  flex-shrink: 0;
 }
 
 .navbar.scrolled .logo {
@@ -51,8 +58,8 @@
   fill: #ffffff;
   transition: all 0.3s ease;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
-  /* Asegurar que el ícono sea siempre visible */
   opacity: 0.95;
+  flex-shrink: 0;
 }
 
 .navbar.scrolled .logoIcon {
@@ -61,28 +68,12 @@
   opacity: 1;
 }
 
-/* Estados adicionales para mejor contraste */
 .logoIcon:hover {
   opacity: 1;
   transform: scale(1.05);
 }
 
-/* Regla de seguridad: el ícono nunca debe ser invisible */
-.logoIcon {
-  min-opacity: 0.8 !important;
-}
-
-/* Mejor contraste en fondos claros */
-@media (prefers-contrast: high) {
-  .navbar.scrolled .logoIcon {
-    fill: #000000;
-  }
-
-  .logoIcon {
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
-  }
-}
-
+/* Desktop Menu */
 .desktopMenu {
   display: flex;
   align-items: center;
@@ -90,16 +81,20 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .navLink {
   color: #ffffff;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
   font-weight: 500;
   transition: color 0.3s ease;
   cursor: pointer;
   position: relative;
+  white-space: nowrap;
+  padding: 0.5rem 0;
 }
 
 .navbar.scrolled .navLink {
@@ -107,7 +102,7 @@
 }
 
 .navLink:hover {
-  color: #646cff;
+  color: #ff8a50;
 }
 
 .navLink::after {
@@ -117,7 +112,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #646cff;
+  background-color: #ff8a50;
   transition: width 0.3s ease;
 }
 
@@ -126,25 +121,28 @@
 }
 
 .loginButton {
-  background-color: #646cff;
+  background-color: #ff8a50;
   color: #ffffff;
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 25px;
-  font-size: 0.9rem;
+  font-size: clamp(0.85rem, 1.2vw, 0.9rem);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
   display: inline-block;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .loginButton:hover {
-  background-color: #535bf2;
+  background-color: #ff6b6b;
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(100, 108, 255, 0.3);
+  box-shadow: 0 5px 15px rgba(255, 138, 80, 0.4);
 }
 
+/* Hamburger Menu */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -153,6 +151,7 @@
   z-index: 1001;
   background: none;
   border: none;
+  flex-shrink: 0;
 }
 
 .hamburgerLine {
@@ -180,13 +179,14 @@
   transform: rotate(-45deg) translate(7px, -6px);
 }
 
+/* Mobile Menu */
 .mobileMenu {
   position: fixed;
   top: 70px;
   left: 0;
   right: 0;
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(15px);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding: 1rem;
   transform: translateY(-100%);
@@ -194,6 +194,9 @@
   visibility: hidden;
   transition: all 0.3s ease;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  max-height: calc(100vh - 70px);
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .mobileMenu.open {
@@ -208,7 +211,8 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
+  max-width: 100%;
 }
 
 .mobileNavLink {
@@ -216,19 +220,21 @@
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 500;
-  padding: 0.75rem 0;
+  padding: 1rem 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   transition: color 0.3s ease;
   cursor: pointer;
   display: block;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .mobileNavLink:hover {
-  color: #646cff;
+  color: #ff8a50;
 }
 
 .mobileLoginButton {
-  background-color: #646cff;
+  background-color: #ff8a50;
   color: #ffffff;
   border: none;
   padding: 1rem 2rem;
@@ -242,14 +248,40 @@
   display: block;
   margin-top: 1rem;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .mobileLoginButton:hover {
-  background-color: #535bf2;
+  background-color: #ff6b6b;
   transform: translateY(-2px);
 }
 
-/* Responsive Design */
+/* Media Queries Responsivas */
+
+/* Pantallas grandes (1400px y más) */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+    padding: 0 2rem;
+  }
+
+  .desktopMenu {
+    gap: 2.5rem;
+  }
+}
+
+/* Tablets y pantallas medianas (1024px y menos) */
+@media (max-width: 1024px) {
+  .desktopMenu {
+    gap: 1.5rem;
+  }
+
+  .loginButton {
+    padding: 0.625rem 1.25rem;
+  }
+}
+
+/* Tablets pequeñas (768px y menos) */
 @media (max-width: 768px) {
   .desktopMenu {
     display: none;
@@ -258,23 +290,79 @@
   .hamburger {
     display: flex;
   }
-}
 
-@media (min-width: 769px) {
-  .mobileMenu {
-    display: none !important;
+  .container {
+    padding: 0 1rem;
   }
 }
 
-/* Smooth transitions for better UX */
-@media (prefers-reduced-motion: reduce) {
-  .navbar,
-  .navLink,
-  .hamburgerLine,
-  .mobileMenu,
-  .loginButton,
+/* Móviles (480px y menos) */
+@media (max-width: 480px) {
+  .container {
+    height: 60px;
+    padding: 0 0.75rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .logoIcon {
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+  }
+
+  .mobileMenu {
+    top: 60px;
+    padding: 0.75rem;
+  }
+
+  .mobileNavLink {
+    font-size: 1rem;
+    padding: 0.875rem 0;
+  }
+
   .mobileLoginButton {
-    transition: none;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+    margin-top: 0.75rem;
+  }
+}
+
+/* Móviles muy pequeños (320px y menos) */
+@media (max-width: 320px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  .logoIcon {
+    width: 18px;
+    height: 18px;
+    margin-right: 4px;
+  }
+
+  .hamburgerLine {
+    width: 20px;
+  }
+}
+
+/* Landscape en móviles */
+@media (max-width: 768px) and (orientation: landscape) {
+  .mobileMenu {
+    max-height: calc(100vh - 60px);
+  }
+
+  .mobileMenuList {
+    gap: 0.25rem;
+  }
+
+  .mobileNavLink {
+    padding: 0.75rem 0;
   }
 }
 
@@ -301,12 +389,78 @@
   }
 
   .mobileMenu {
-    background-color: rgba(26, 26, 26, 0.95);
+    background-color: rgba(26, 26, 26, 0.98);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .mobileNavLink {
     color: #f7fafc;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* High contrast support */
+@media (prefers-contrast: high) {
+  .navbar.scrolled {
+    background-color: rgba(255, 255, 255, 1);
+    border-bottom: 2px solid #000000;
+  }
+
+  .navbar.scrolled .logo,
+  .navbar.scrolled .navLink {
+    color: #000000;
+  }
+
+  .loginButton {
+    border: 2px solid #000000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .navLink,
+  .hamburgerLine,
+  .mobileMenu,
+  .loginButton,
+  .mobileLoginButton,
+  .logoIcon {
+    transition: none;
+  }
+
+  .loginButton:hover,
+  .mobileLoginButton:hover {
+    transform: none;
+  }
+
+  .logoIcon:hover {
+    transform: none;
+  }
+}
+
+/* Asegurar que el menú móvil no cause overflow */
+@media (max-width: 768px) {
+  .mobileMenu {
+    width: 100vw;
+    max-width: 100vw;
+    left: 0;
+    right: 0;
+  }
+}
+
+/* Focus states para accesibilidad */
+.navLink:focus,
+.loginButton:focus,
+.mobileNavLink:focus,
+.mobileLoginButton:focus,
+.hamburger:focus {
+  outline: 2px solid #ff8a50;
+  outline-offset: 2px;
+}
+
+/* Asegurar que el navbar no interfiera con el scroll */
+@media (min-width: 769px) {
+  .mobileMenu {
+    display: none !important;
   }
 }

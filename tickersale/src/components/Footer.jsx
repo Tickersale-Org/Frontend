@@ -45,104 +45,92 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       {/* Línea superior */}
-      <div className={styles.topBorder}></div>
+      <div className={styles.topSeparator}></div>
 
-      <div className={styles.container}>
+      <div className={styles.footerContainer}>
         {/* Contenido principal del footer */}
-        <div className={styles.content}>
-          {/* Columna Información */}
-          <div className={styles.column}>
-            <h3 className={styles.columnTitle}>Información</h3>
-            <ul className={styles.linkList}>
-              <li>
-                <a
-                  href="#acerca-de"
-                  className={styles.link}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLinkClick("Acerca de");
-                  }}
-                >
-                  Acerca de
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#blog"
-                  className={styles.link}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLinkClick("Blog");
-                  }}
-                >
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#carreras"
-                  className={styles.link}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLinkClick("Carreras");
-                  }}
-                >
-                  Carreras
-                </a>
-              </li>
-            </ul>
+        <div className={styles.mainContent}>
+          {/* Columna Informaci��n */}
+          <div className={styles.linkColumn}>
+            <h3 className={styles.sectionTitle}>Información</h3>
+            <nav className={styles.linkNavigation}>
+              <a
+                href="#acerca-de"
+                className={styles.footerLink}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLinkClick("Acerca de");
+                }}
+              >
+                Acerca de
+              </a>
+              <a
+                href="#blog"
+                className={styles.footerLink}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLinkClick("Blog");
+                }}
+              >
+                Blog
+              </a>
+              <a
+                href="#carreras"
+                className={styles.footerLink}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLinkClick("Carreras");
+                }}
+              >
+                Carreras
+              </a>
+            </nav>
           </div>
 
           {/* Columna Soporte */}
-          <div className={styles.column}>
-            <h3 className={styles.columnTitle}>Soporte</h3>
-            <ul className={styles.linkList}>
-              <li>
-                <a
-                  href="#contacto"
-                  className={styles.link}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLinkClick("Contacto");
-                  }}
-                >
-                  Contacto
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#faq"
-                  className={styles.link}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLinkClick("Preguntas frecuentes");
-                  }}
-                >
-                  Preguntas frecuentes
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#terminos"
-                  className={styles.link}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLinkClick("Términos y condiciones");
-                  }}
-                >
-                  Términos y condiciones
-                </a>
-              </li>
-            </ul>
+          <div className={styles.linkColumn}>
+            <h3 className={styles.sectionTitle}>Soporte</h3>
+            <nav className={styles.linkNavigation}>
+              <a
+                href="#contacto"
+                className={styles.footerLink}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLinkClick("Contacto");
+                }}
+              >
+                Contacto
+              </a>
+              <a
+                href="#faq"
+                className={styles.footerLink}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLinkClick("Preguntas frecuentes");
+                }}
+              >
+                Preguntas frecuentes
+              </a>
+              <a
+                href="#terminos"
+                className={styles.footerLink}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLinkClick("Términos y condiciones");
+                }}
+              >
+                Términos y condiciones
+              </a>
+            </nav>
           </div>
 
           {/* Columna Redes Sociales */}
-          <div className={`${styles.column} ${styles.socialColumn}`}>
-            <h3 className={styles.columnTitle}>Síguenos</h3>
-            <div className={styles.socialLinks}>
+          <div className={styles.socialSection}>
+            <h3 className={styles.sectionTitle}>Síguenos</h3>
+            <div className={styles.socialContainer}>
               <a
                 href="#facebook"
-                className={styles.socialLink}
+                className={styles.socialIcon}
                 onClick={(e) => {
                   e.preventDefault();
                   handleSocialClick("Facebook");
@@ -153,7 +141,7 @@ const Footer = () => {
               </a>
               <a
                 href="#twitter"
-                className={styles.socialLink}
+                className={styles.socialIcon}
                 onClick={(e) => {
                   e.preventDefault();
                   handleSocialClick("Twitter");
@@ -164,7 +152,7 @@ const Footer = () => {
               </a>
               <a
                 href="#instagram"
-                className={styles.socialLink}
+                className={styles.socialIcon}
                 onClick={(e) => {
                   e.preventDefault();
                   handleSocialClick("Instagram");
@@ -178,13 +166,16 @@ const Footer = () => {
         </div>
 
         {/* Línea separadora */}
-        <div className={styles.divider}></div>
+        <div className={styles.contentSeparator}></div>
 
         {/* Copyright */}
-        <div className={styles.copyright}>
+        <div className={styles.copyrightSection}>
           © 2025 Tickersale. Todos los derechos reservados.
         </div>
       </div>
+
+      {/* Línea inferior */}
+      <div className={styles.bottomSeparator}></div>
     </footer>
   );
 };

@@ -1,102 +1,129 @@
-/* Footer Component Styles */
+/* Footer Component Styles - Perfectamente Centrado y Responsivo */
 .footer {
   background-color: #1a1a1a;
   color: #e2e8f0;
   width: 100%;
   margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-/* Línea superior */
-.topBorder {
+/* Líneas separadoras superiores e inferiores */
+.topSeparator,
+.bottomSeparator {
   width: 100%;
   height: 1px;
   background: linear-gradient(90deg, transparent, #4a5568, transparent);
+}
+
+.topSeparator {
   margin-bottom: 0;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 3rem 1rem 1rem;
+.bottomSeparator {
+  margin-top: 0;
 }
 
-.content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+/* Contenedor principal centrado */
+.footerContainer {
+  max-width: 1200px;
+  width: 100%;
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Contenido principal del footer */
+.mainContent {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  width: 100%;
+  max-width: 800px;
   margin-bottom: 2rem;
 }
 
-.column {
+/* Columnas de enlaces */
+.linkColumn {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+  min-width: 0;
 }
 
-.columnTitle {
-  font-size: 1.1rem;
+/* Sección de redes sociales */
+.socialSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Títulos de secciones */
+.sectionTitle {
+  font-size: clamp(1rem, 2vw, 1.1rem);
   font-weight: 600;
   color: #ffffff;
-  margin-bottom: 0.5rem;
+  margin: 0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  text-align: center;
 }
 
-.linkList {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+/* Navegación de enlaces */
+.linkNavigation {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0.75rem;
+  width: 100%;
 }
 
-.link {
+/* Enlaces del footer */
+.footerLink {
   color: #a0aec0;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
   transition: all 0.3s ease;
   cursor: pointer;
   position: relative;
-  padding: 0.25rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
-.link:hover {
-  color: #646cff;
-  transform: translateX(5px);
+.footerLink:hover {
+  color: #ff8a50;
+  background-color: rgba(255, 138, 80, 0.1);
+  transform: translateY(-2px);
 }
 
-.link::before {
-  content: "";
-  position: absolute;
-  left: -10px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0;
-  height: 2px;
-  background-color: #646cff;
-  transition: width 0.3s ease;
-}
-
-.link:hover::before {
-  width: 6px;
-}
-
-/* Columna de redes sociales */
-.socialColumn {
+/* Contenedor de redes sociales */
+.socialContainer {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: flex-start;
-}
-
-.socialLinks {
-  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
 }
 
-.socialLink {
+/* Iconos sociales */
+.socialIcon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,98 +134,170 @@
   transition: all 0.3s ease;
   cursor: pointer;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
-.socialLink:hover {
-  background-color: #646cff;
+.socialIcon:hover {
+  background-color: #ff8a50;
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(100, 108, 255, 0.3);
+  box-shadow: 0 5px 15px rgba(255, 138, 80, 0.4);
 }
 
-.socialIcon {
+.socialIcon svg {
   width: 20px;
   height: 20px;
   fill: #e2e8f0;
   transition: fill 0.3s ease;
+  flex-shrink: 0;
 }
 
-.socialLink:hover .socialIcon {
+.socialIcon:hover svg {
   fill: #ffffff;
 }
 
-/* Línea separadora */
-.divider {
+/* Línea separadora del contenido */
+.contentSeparator {
   width: 100%;
+  max-width: 600px;
   height: 1px;
   background: linear-gradient(90deg, transparent, #4a5568, transparent);
   margin: 2rem 0 1.5rem;
 }
 
-/* Copyright */
-.copyright {
-  text-align: center;
+/* Sección de copyright */
+.copyrightSection {
   color: #718096;
-  font-size: 0.9rem;
-  padding: 1rem 0 2rem;
-  border-top: 1px solid #2d3748;
-  margin-top: 1rem;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+  text-align: center;
+  padding: 1rem 0;
+  max-width: 100%;
+  word-wrap: break-word;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .container {
-    padding: 2rem 1rem 1rem;
+/* Media Queries Responsivas - Centrado Perfecto */
+
+/* Pantallas grandes (1400px y más) */
+@media (min-width: 1400px) {
+  .footerContainer {
+    max-width: 1400px;
+    padding: 3.5rem 2rem;
   }
 
-  .content {
-    grid-template-columns: 1fr;
+  .mainContent {
+    gap: 4rem;
+    max-width: 900px;
+  }
+}
+
+/* Pantallas medianas (1024px y menos) */
+@media (max-width: 1024px) {
+  .footerContainer {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .mainContent {
     gap: 2.5rem;
+    max-width: 700px;
+  }
+}
+
+/* Tablets (768px y menos) */
+@media (max-width: 768px) {
+  .footerContainer {
+    padding: 2rem 1rem;
+  }
+
+  .mainContent {
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .linkColumn,
+  .socialSection {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .footerLink {
+    white-space: normal;
     text-align: center;
   }
-
-  .column {
-    align-items: center;
-  }
-
-  .socialColumn {
-    align-items: center;
-  }
-
-  .socialLinks {
-    justify-content: center;
-  }
-
-  .link {
-    padding: 0.5rem 0;
-  }
-
-  .columnTitle {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-  }
 }
 
+/* Móviles (480px y menos) */
 @media (max-width: 480px) {
-  .container {
-    padding: 1.5rem 0.75rem 1rem;
+  .footerContainer {
+    padding: 1.5rem 0.75rem;
   }
 
-  .content {
+  .mainContent {
     gap: 2rem;
   }
 
-  .socialLinks {
+  .socialContainer {
     gap: 0.75rem;
   }
 
-  .socialLink {
+  .socialIcon {
     width: 40px;
     height: 40px;
+    border-radius: 10px;
+  }
+
+  .socialIcon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .footerLink {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Móviles muy pequeños (320px y menos) */
+@media (max-width: 320px) {
+  .footerContainer {
+    padding: 1.25rem 0.5rem;
+  }
+
+  .mainContent {
+    gap: 1.5rem;
+  }
+
+  .socialContainer {
+    gap: 0.5rem;
   }
 
   .socialIcon {
-    width: 18px;
-    height: 18px;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+
+  .socialIcon svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Landscape en móviles */
+@media (max-width: 768px) and (orientation: landscape) {
+  .footerContainer {
+    padding: 1.5rem 1rem;
+  }
+
+  .mainContent {
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .linkColumn,
+  .socialSection {
+    flex: 1;
+    max-width: 200px;
   }
 }
 
@@ -208,37 +307,35 @@
     background-color: #0d1117;
   }
 
-  .columnTitle {
+  .sectionTitle {
     color: #f0f6fc;
   }
 
-  .link {
+  .footerLink {
     color: #8b949e;
   }
 
-  .link:hover {
-    color: #646cff;
+  .footerLink:hover {
+    color: #ff8a50;
+    background-color: rgba(255, 138, 80, 0.15);
   }
 
-  .copyright {
+  .copyrightSection {
     color: #6e7681;
   }
 
-  .socialLink {
+  .socialIcon {
     background-color: #21262d;
   }
 
-  .socialLink:hover {
-    background-color: #646cff;
+  .socialIcon:hover {
+    background-color: #ff8a50;
   }
 
-  .topBorder,
-  .divider {
+  .topSeparator,
+  .bottomSeparator,
+  .contentSeparator {
     background: linear-gradient(90deg, transparent, #30363d, transparent);
-  }
-
-  .copyright {
-    border-top: 1px solid #21262d;
   }
 }
 
@@ -246,47 +343,109 @@
 @media (prefers-contrast: high) {
   .footer {
     background-color: #000000;
+    border: 2px solid #ffffff;
   }
 
-  .columnTitle {
+  .sectionTitle {
     color: #ffffff;
   }
 
-  .link {
+  .footerLink {
     color: #cccccc;
+    border: 1px solid transparent;
   }
 
-  .link:hover {
+  .footerLink:hover {
     color: #ffffff;
-    background-color: #646cff;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
+    background-color: #ff8a50;
+    border-color: #ff8a50;
+    transform: none;
   }
 
-  .socialLink {
+  .socialIcon {
     background-color: #333333;
     border: 1px solid #666666;
   }
 
-  .socialLink:hover {
-    background-color: #646cff;
-    border-color: #646cff;
+  .socialIcon:hover {
+    background-color: #ff8a50;
+    border-color: #ff8a50;
+  }
+
+  .copyrightSection {
+    color: #ffffff;
   }
 }
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  .link,
-  .socialLink,
+  .footerLink,
   .socialIcon {
     transition: none;
   }
 
-  .link:hover {
+  .footerLink:hover,
+  .socialIcon:hover {
     transform: none;
   }
+}
 
-  .socialLink:hover {
+/* Estados para dispositivos táctiles */
+@media (hover: none) {
+  .footerLink:hover,
+  .socialIcon:hover {
     transform: none;
   }
+}
+
+.footerLink:active,
+.socialIcon:active {
+  transform: scale(0.98);
+}
+
+/* Focus states para accesibilidad */
+.footerLink:focus,
+.socialIcon:focus {
+  outline: 2px solid #ff8a50;
+  outline-offset: 2px;
+}
+
+/* Asegurar centrado perfecto y sin overflow */
+.footer {
+  overflow-x: hidden;
+}
+
+.footerContainer {
+  overflow-x: hidden;
+}
+
+/* Optimización para pantallas muy anchas */
+@media (min-width: 1600px) {
+  .mainContent {
+    max-width: 1000px;
+  }
+}
+
+/* Asegurar que el texto no se desborde */
+.sectionTitle,
+.footerLink,
+.copyrightSection {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Centrado vertical para contenedores flexibles */
+.linkColumn,
+.socialSection {
+  justify-content: center;
+}
+
+/* Asegurar espaciado consistente */
+.linkNavigation {
+  min-height: fit-content;
+}
+
+.socialContainer {
+  min-height: fit-content;
 }
