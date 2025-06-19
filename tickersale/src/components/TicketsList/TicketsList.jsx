@@ -1,5 +1,7 @@
+import { useState } from "react";
 import styles from './TicketsList.module.css';
 import TicketCard from './TicketCard';
+import TicketModal from './TicketModal';
 
 const demoTickets = [
   {
@@ -89,14 +91,23 @@ const demoTickets = [
 ];
 
 export default function TicketsList() {
+  const [selectedTicket, setSelectedTicket] = useState(null);
   return (
     <section className={styles.wrapper}>
       <h2 className={styles.title}>Entradas Disponibles</h2>
       <div className={styles.grid}>
         {demoTickets.map(ticket => (
-          <TicketCard key={ticket.id} ticket={ticket} />
+          <TicketCard
+            key={ticket.id}
+            ticket={ticket}
+            onPreview={() => setSelectedTicket(ticket)}
+          />
         ))}
       </div>
+      <TicketModal
+        ticket={selectedTicket}
+        onClose={() => setSelectedTicket(null)}
+      />
     </section>
   );
 }
