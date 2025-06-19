@@ -1,17 +1,18 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import RegisterForm from "../components/RegisterForm";
+import Navbar from "../../components/NavBar/Navbar";
+import Footer from "../../components/Footer/Footer";
+import RegisterForm from "../../components/RegisterForm";
 import styles from "./RegisterPage.module.css";
 
-const RegisterPage = ({ onNavigateToLogin, onNavigateToLanding }) => {
+const RegisterPage = ({ onNavigateToLanding, onNavigateToRegister, onNavigateToEntradas, onNavigateToLogin }) => {
   return (
     <div className={styles.registerPageContainer}>
       {/* Navbar at the top */}
       <Navbar
-        onNavigateToLogin={onNavigateToLogin}
         onNavigateToLanding={onNavigateToLanding}
+        onNavigateToRegister={onNavigateToRegister}
+        onNavigateToEntradas={onNavigateToEntradas}
+        onNavigateToLogin={onNavigateToLogin}
       />
-
       {/* Main content area */}
       <main className={styles.mainContent}>
         <div className={styles.contentWrapper}>
