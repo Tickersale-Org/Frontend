@@ -1,15 +1,19 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import LoginForm from "../components/LoginForm";
-import ForgotPasswordLink from "../components/ForgotPasswordLink";
+import Navbar from "../../components/NavBar/Navbar";
+import Footer from "../../components/Footer/Footer";
+import LoginForm from "../../components/LoginForm";
+import ForgotPasswordLink from "../../components/ForgotPasswordLink";
 import styles from "./LoginPage.module.css";
 
-const LoginPage = ({ onNavigateToLanding, onNavigateToRegister }) => {
+const LoginPage = ({ onNavigateToLanding, onNavigateToRegister, onNavigateToEntradas, onNavigateToLogin }) => {
   return (
     <div className={styles.loginPageContainer}>
       {/* Navbar at the top */}
-      <Navbar onNavigateToLogin={() => {}} />
-
+      <Navbar
+        onNavigateToLanding={onNavigateToLanding}
+        onNavigateToRegister={onNavigateToRegister}
+        onNavigateToEntradas={onNavigateToEntradas}
+        onNavigateToLogin={onNavigateToLogin}
+      />
       {/* Main content area */}
       <main className={styles.mainContent}>
         <div className={styles.contentWrapper}>

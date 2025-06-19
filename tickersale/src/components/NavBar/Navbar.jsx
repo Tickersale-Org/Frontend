@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { useAuth } from "../context/AuthContext";
-import UserMenu from "./UserMenu";
+import { useAuth } from "../../context/AuthContext";
+import UserMenu from "../UserMenu";
 import styles from "./Navbar.module.css";
 
-const Navbar = ({ onNavigateToLogin, onNavigateToLanding }) => {
+const Navbar = ({ onNavigateToLogin, onNavigateToLanding, onNavigateToEntradas }) => {
   const { isAuthenticated, isLoading } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -103,7 +103,10 @@ const Navbar = ({ onNavigateToLogin, onNavigateToLanding }) => {
             <a
               href="#inicio"
               className={styles.navLink}
-              onClick={(e) => e.preventDefault()}
+              onClick={(e) => {
+                e.preventDefault();
+                if (onNavigateToLanding) onNavigateToLanding();
+              }}
             >
               Inicio
             </a>
@@ -112,7 +115,10 @@ const Navbar = ({ onNavigateToLogin, onNavigateToLanding }) => {
             <a
               href="#entradas"
               className={styles.navLink}
-              onClick={(e) => e.preventDefault()}
+              onClick={(e) => {
+                e.preventDefault();
+                if (onNavigateToEntradas) onNavigateToEntradas();
+              }}
             >
               Entradas
             </a>
@@ -167,8 +173,12 @@ const Navbar = ({ onNavigateToLogin, onNavigateToLanding }) => {
           <li>
             <a
               href="#inicio"
-              className={styles.mobileNavLink}
-              onClick={handleLinkClick}
+              className={styles.navLink}
+              onClick={(e) => {
+                e.preventDefault();
+                if (onNavigateToLanding) onNavigateToLanding();
+                handleLinkClick();
+              }}
             >
               Inicio
             </a>
@@ -177,7 +187,11 @@ const Navbar = ({ onNavigateToLogin, onNavigateToLanding }) => {
             <a
               href="#entradas"
               className={styles.mobileNavLink}
-              onClick={handleLinkClick}
+              onClick={(e) => {
+                e.preventDefault();
+                if (onNavigateToEntradas) onNavigateToEntradas();
+                handleLinkClick();
+              }}
             >
               Entradas
             </a>

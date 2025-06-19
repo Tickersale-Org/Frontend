@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { AuthProvider } from "./context/AuthContext";
-import Landing from "./pages/Landing";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
+import Landing from "./pages/Landing/Landing";
+import LoginPage from "./pages/Login/LoginPage";
+import RegisterPage from "./pages/Register/RegisterPage";
+import Entradas from "./pages/Entradas/Entradas";
 import "./App.css";
 
 function App() {
@@ -30,6 +31,10 @@ function App() {
     setCurrentPage("register");
   };
 
+  const navigateToEntradas = () => {
+    setCurrentPage("entradas");
+  }
+
   // Render current page based on state
   return (
     <AuthProvider>
@@ -38,18 +43,31 @@ function App() {
           <Landing
             onNavigateToLogin={navigateToLogin}
             onNavigateToRegister={navigateToRegister}
+            onNavigateToEntradas={navigateToEntradas}
           />
         )}
         {currentPage === "login" && (
           <LoginPage
             onNavigateToLanding={navigateToLanding}
             onNavigateToRegister={navigateToRegister}
+            onNavigateToEntradas={navigateToEntradas}
+            onNavigateToLogin={navigateToLogin}
           />
         )}
         {currentPage === "register" && (
           <RegisterPage
-            onNavigateToLogin={navigateToLogin}
             onNavigateToLanding={navigateToLanding}
+            onNavigateToRegister={navigateToRegister}
+            onNavigateToEntradas={navigateToEntradas}
+            onNavigateToLogin={navigateToLogin}
+
+          />
+        )}
+        {currentPage === "entradas" && (
+          <Entradas
+            onNavigateToLanding={navigateToLanding}
+            onNavigateToLogin={navigateToLogin}
+            onNavigateToEntradas={navigateToEntradas}
           />
         )}
       </div>
